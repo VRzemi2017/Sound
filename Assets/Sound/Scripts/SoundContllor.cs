@@ -17,8 +17,7 @@ public class SoundContllor : MonoBehaviour {
     {
         this.audio.UnPause();
     }
-
-    private void UpDate()
+    public void Update()
     {
         if (Input.GetKey(KeyCode.Return))
         {
