@@ -10,15 +10,20 @@ public class SoundContllor : MonoBehaviour {
     private void Start()
     {
         audio = GetComponent<AudioSource>();
-        audio.Pause();
+        this.audio.Play();
+        this.audio.Pause();
+    }
+    public void Music()
+    {
+        this.audio.UnPause();
     }
 
     private void UpDate()
     {
-        if (Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Return))
         {
             Debug.Log("MusicStart");
-            audio.UnPause();
+            Music();
         }
     }
 }
