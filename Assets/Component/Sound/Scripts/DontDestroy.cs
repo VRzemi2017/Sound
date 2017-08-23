@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class SoundManager : MonoBehaviour {
+public class DontDestroy : MonoBehaviour {
+
+	void Awake() {
+		DontDestroyOnLoad (this);
+	}
 
 	// Use this for initialization
 	void Start () {
