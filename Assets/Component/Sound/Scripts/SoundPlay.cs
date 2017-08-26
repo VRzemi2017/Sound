@@ -41,7 +41,7 @@ public class SoundPlay : MonoBehaviour {
 			_soundCube.spatialize = true;
 			Debug.Log ( "空間化を有効にしました" );
 		}
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		/*if (Input.GetKeyDown (KeyCode.Space)) {
 			_soundCube.spatialize = false;
 			_soundCube.spatialBlend = 0f;
 			Debug.Log ( "空間化を無効にし,3D→2D" );
@@ -50,6 +50,6 @@ public class SoundPlay : MonoBehaviour {
 			_soundCube.spatialize = true;
 			_soundCube.spatialBlend = 1f;
 			Debug.Log ( "空間化を有効にし,2D→3D" );
-		}
+		}*/	
 	}
 }
