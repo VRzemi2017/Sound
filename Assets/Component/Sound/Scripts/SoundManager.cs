@@ -13,19 +13,8 @@ public class SoundManager : MonoBehaviour {
 		public bool _sound_PauseFlag;				//_musicをPauseするか判定する変数
 		public bool _button_controll;				//各種設定をボタンでコントロールするか判定する変数
 	};
-	public SoundData _music1;
-	public SoundData _music2;
-	public SoundData _music3;
-	public SoundData _music4;
-	public SoundData _music5;
-	public SoundData _music6;
-	public SoundData _music7;
-	public SoundData _music8;
-	public SoundData _music9;
-	public SoundData _music10;
-	public SoundData _music11;
-	public SoundData _music12;
 
+	public List<SoundDataComponent> _music; 
 
 	public float volume_change = 0.1f; 
 
@@ -34,69 +23,33 @@ public class SoundManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//SoundManagerのInspectorを初期化する
-		_music1 = InitializeAudioSource ( _music1._sound );
-		_music2 = InitializeAudioSource ( _music2._sound );
-		_music3 = InitializeAudioSource ( _music3._sound );
-		_music4 = InitializeAudioSource ( _music4._sound );
-		_music5 = InitializeAudioSource ( _music5._sound );
-		_music6 = InitializeAudioSource ( _music6._sound );
-		_music6 = InitializeAudioSource ( _music7._sound );
-		_music6 = InitializeAudioSource ( _music8._sound );
-		_music6 = InitializeAudioSource ( _music9._sound );
-		_music6 = InitializeAudioSource ( _music10._sound );
-		_music6 = InitializeAudioSource ( _music11._sound );
-		_music6 = InitializeAudioSource ( _music12._sound );
+		for (int i = 0; i < _music.Count; i++) {
+			_music [i].soundData = InitializeAudioSource (_music [i].soundData._sound);
+		}
 	
 	}
 
 	// Update is called once per frame
 	void Update () {
 		//Inspector内での調整を対応するAoudioSourceに反映する
-		_music1 = AdjustmentAudioSource( _music1 );
-		_music2 = AdjustmentAudioSource( _music2 );
-		_music3 = AdjustmentAudioSource( _music3 );
-		_music4 = AdjustmentAudioSource( _music4 );
-		_music5 = AdjustmentAudioSource( _music5 );
-		_music6 = AdjustmentAudioSource( _music6 );
-		_music6 = AdjustmentAudioSource( _music7 );
-		_music6 = AdjustmentAudioSource( _music8 );
-		_music6 = AdjustmentAudioSource( _music9 );
-		_music6 = AdjustmentAudioSource( _music10 );
-		_music6 = AdjustmentAudioSource( _music11 );
-		_music6 = AdjustmentAudioSource( _music12 );
+		for (int i = 0; i < _music.Count; i++) {
+			_music [i].soundData = AdjustmentAudioSource (_music [i].soundData);
+		}
 
 
 		//ボタンによる_soundObjectの調整
-		_music1 = ButtonControll( _music1 );
-		_music2 = ButtonControll( _music2 );
-		_music3 = ButtonControll( _music3 );
-		_music4 = ButtonControll( _music4 );
-		_music5 = ButtonControll( _music5 );
-		_music6 = ButtonControll( _music6 );
-		_music6 = ButtonControll( _music7 );
-		_music6 = ButtonControll( _music8 );
-		_music6 = ButtonControll( _music9 );
-		_music6 = ButtonControll( _music10 );
-		_music6 = ButtonControll( _music11 );
-		_music6 = ButtonControll( _music12 );
-
+		for (int i = 0; i < _music.Count; i++) {
+			_music [i].soundData = ButtonControll (_music [i].soundData);
+		}
 
 	}
 		
 	void LateUpdate() {
 		//対応するAoudioSourceの値をInspector内に反映する
-		_music1 = ReflectAudioSource( _music1 );
-		_music2 = ReflectAudioSource( _music2 );
-		_music3 = ReflectAudioSource( _music3 );
-		_music4 = ReflectAudioSource( _music4 );
-		_music5 = ReflectAudioSource( _music5 );
-		_music6 = ReflectAudioSource( _music6 );
-		_music6 = ReflectAudioSource( _music7 );
-		_music6 = ReflectAudioSource( _music8 );
-		_music6 = ReflectAudioSource( _music9 );
-		_music6 = ReflectAudioSource( _music10 );
-		_music6 = ReflectAudioSource( _music11 );
-		_music6 = ReflectAudioSource( _music12 );
+		for (int i = 0; i < _music.Count; i++) {
+			_music [i].soundData = ReflectAudioSource (_music [i].soundData);
+		}
+
 	}
 
 
@@ -216,7 +169,7 @@ public class SoundManager : MonoBehaviour {
 	}
 
 
-
+	//---AudioSourceを再生する関数
 
 
 

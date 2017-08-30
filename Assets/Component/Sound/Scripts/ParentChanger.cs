@@ -12,18 +12,7 @@ public class ParentChanger : MonoBehaviour {
 		public GameObject _parent_gameObject;
 	}
 
-	public ParentData _music1;
-	public ParentData _music2;
-	public ParentData _music3;
-	public ParentData _music4;
-	public ParentData _music5;
-	public ParentData _music6;
-	public ParentData _music7;
-	public ParentData _music8;
-	public ParentData _music9;
-	public ParentData _music10;
-	public ParentData _music11;
-	public ParentData _music12;
+	public List<ParentData> _music;
 
 
 	//親となるObject
@@ -43,54 +32,38 @@ public class ParentChanger : MonoBehaviour {
 		*/
 
 		//ParentChangerのInspectorを初期化
-		_music1 = UpdateParentData ( _music1 );
-		_music2 = UpdateParentData ( _music2 );
-		_music3 = UpdateParentData ( _music3 );
-		_music4 = UpdateParentData ( _music4 );
-		_music5 = UpdateParentData ( _music5 );
-		_music6 = UpdateParentData ( _music6 );
-		_music6 = UpdateParentData ( _music7 );
-		_music6 = UpdateParentData ( _music8 );
-		_music6 = UpdateParentData ( _music9 );
-		_music6 = UpdateParentData ( _music10 );
-		_music6 = UpdateParentData ( _music11 );
-		_music6 = UpdateParentData ( _music12 );
+		for (int i = 0; i < _music.Count; i++) {
+			_music [i] = UpdateParentData (_music [i]);
+		}
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//親子関係・positionを変えるイベント
 		if (Input.GetKeyDown (KeyCode.A)) {
-			ChangeParent ( Sound_root, _music1._gameObject );
-			MovePosition ( Sound_root, _music1._gameObject );
+			ChangeParent ( Sound_root, _music[0]._gameObject );
+			MovePosition ( Sound_root, _music[0]._gameObject );
 		}
 		if (Input.GetKeyDown (KeyCode.B)) {
-			ChangeParent ( Enemy, _music1._gameObject );
-			MovePosition ( Enemy, _music1._gameObject );
+			ChangeParent ( Enemy, _music[0]._gameObject );
+			MovePosition ( Enemy, _music[0]._gameObject );
 		}
 		if (Input.GetKeyDown (KeyCode.C)) {
-			ChangeParent ( Gem, _music1._gameObject );
-			MovePosition ( Gem, _music1._gameObject );
+			ChangeParent ( Gem, _music[0]._gameObject );
+			MovePosition ( Gem, _music[0]._gameObject );
 		}
 		if (Input.GetKeyDown (KeyCode.D)) {
-			ChangeParent ( Wand, _music1._gameObject );
-			MovePosition ( Wand, _music1._gameObject );
+			ChangeParent ( Wand, _music[0]._gameObject );
+			MovePosition ( Wand, _music[0]._gameObject );
 		}
 
 
 		//ParentChangerのInspectorを更新
-		_music1 = UpdateParentData ( _music1 );
-		_music2 = UpdateParentData ( _music2 );
-		_music3 = UpdateParentData ( _music3 );
-		_music4 = UpdateParentData ( _music4 );
-		_music5 = UpdateParentData ( _music5 );
-		_music6 = UpdateParentData ( _music6 );
-		_music6 = UpdateParentData ( _music7 );
-		_music6 = UpdateParentData ( _music8 );
-		_music6 = UpdateParentData ( _music9 );
-		_music6 = UpdateParentData ( _music10 );
-		_music6 = UpdateParentData ( _music11 );
-		_music6 = UpdateParentData ( _music12 );
+		for (int i = 0; i < _music.Count; i++) {
+			_music [i] = UpdateParentData (_music [i]);
+		}
+			
 	}
 
 
