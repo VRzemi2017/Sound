@@ -5,4 +5,5 @@ using UnityEngine;
 public class SoundDataComponent : MonoBehaviour {
 
 	public SoundManager.SoundData soundData;
+
 }
