@@ -20,16 +20,19 @@ public class ParentChanger : MonoBehaviour {
 	public ParentData _music6;
 
 
-
-	public GameObject pa;
-	public GameObject pb;
+	//親となるObject
+	public GameObject parent_a;
+	public GameObject parent_b;
+	public GameObject parent_c;
 
 
 	// Use this for initialization
 	void Start () {
 		//親となるGameObjectを取得（デバック用）
-		pa = GameObject.Find ( "Cube" );
-		pb = GameObject.Find ( "Sphere" );
+		/*
+		parent_a = GameObject.Find ( "Cube" );
+		parent_b = GameObject.Find ( "Sphere" );
+		*/
 
 		//ParentChangerのInspectorを初期化
 		_music1 = UpdateParentData ( _music1 );
@@ -43,13 +46,17 @@ public class ParentChanger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//親子関係・positionを変えるイベント
-		if (Input.GetKey (KeyCode.A)) {
-			ChangeParent ( pa, _music1._gameObject );
-			MovePosition ( pa, _music1._gameObject );
+		if (Input.GetKeyDown (KeyCode.A)) {
+			ChangeParent ( parent_a, _music1._gameObject );
+			MovePosition ( parent_a, _music1._gameObject );
 		}
-		if (Input.GetKey (KeyCode.B)) {
-			ChangeParent ( pb, _music1._gameObject );
-			MovePosition ( pb, _music1._gameObject );
+		if (Input.GetKeyDown (KeyCode.B)) {
+			ChangeParent ( parent_b, _music1._gameObject );
+			MovePosition ( parent_b, _music1._gameObject );
+		}
+		if (Input.GetKeyDown (KeyCode.C)) {
+			ChangeParent ( parent_c, _music1._gameObject );
+			MovePosition ( parent_c, _music1._gameObject );
 		}
 
 		//ParentChangerのInspectorを更新
@@ -65,13 +72,33 @@ public class ParentChanger : MonoBehaviour {
 
 	//---obj1を親、obj2を子の関係にする関数
 	void ChangeParent( GameObject obj1, GameObject obj2 ) {
-		obj2.transform.parent = obj1.transform;
+		if (obj1 && obj2) {
+			obj2.transform.parent = obj1.transform;
+		} else {
+			if (!obj1 && obj2) {
+				Debug.Log ("親にするオブジェクトが見つかりませんでした");
+			} else if (obj1 && !obj2) {
+				Debug.Log ("子にするオブジェクトが見つかりませんでした");
+			} else {
+				Debug.Log ("親と子のオブジェクト両方見つかりませんでした");
+			}
+		}
 	}
 
 
 	//---obj2のpositionをobj1のpositonに対応した位置に移動させる関数
 	void MovePosition( GameObject obj1, GameObject obj2 ) {
-		obj2.transform.position = obj1.transform.position;
+		if (obj1 && obj2) {
+			obj2.transform.position = obj1.transform.position;
+		} else {
+			if (!obj1 && obj2) {
+				Debug.Log ("親にするオブジェクトが見つかりませんでした");
+			} else if (obj1 && !obj2) {
+				Debug.Log ("子にするオブジェクトが見つかりませんでした");
+			} else {
+				Debug.Log ("親と子のオブジェクト両方見つかりませんでした");
+			}
+		}
 	}
 
 	//---ParentChangerのInspectorを更新する関数
