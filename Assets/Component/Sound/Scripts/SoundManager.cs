@@ -19,6 +19,13 @@ public class SoundManager : MonoBehaviour {
 	public SoundData _music4;
 	public SoundData _music5;
 	public SoundData _music6;
+	public SoundData _music7;
+	public SoundData _music8;
+	public SoundData _music9;
+	public SoundData _music10;
+	public SoundData _music11;
+	public SoundData _music12;
+
 
 	public float volume_change = 0.1f; 
 
@@ -33,6 +40,12 @@ public class SoundManager : MonoBehaviour {
 		_music4 = InitializeAudioSource ( _music4._sound );
 		_music5 = InitializeAudioSource ( _music5._sound );
 		_music6 = InitializeAudioSource ( _music6._sound );
+		_music6 = InitializeAudioSource ( _music7._sound );
+		_music6 = InitializeAudioSource ( _music8._sound );
+		_music6 = InitializeAudioSource ( _music9._sound );
+		_music6 = InitializeAudioSource ( _music10._sound );
+		_music6 = InitializeAudioSource ( _music11._sound );
+		_music6 = InitializeAudioSource ( _music12._sound );
 	
 	}
 
@@ -45,6 +58,13 @@ public class SoundManager : MonoBehaviour {
 		_music4 = AdjustmentAudioSource( _music4 );
 		_music5 = AdjustmentAudioSource( _music5 );
 		_music6 = AdjustmentAudioSource( _music6 );
+		_music6 = AdjustmentAudioSource( _music7 );
+		_music6 = AdjustmentAudioSource( _music8 );
+		_music6 = AdjustmentAudioSource( _music9 );
+		_music6 = AdjustmentAudioSource( _music10 );
+		_music6 = AdjustmentAudioSource( _music11 );
+		_music6 = AdjustmentAudioSource( _music12 );
+
 
 		//ボタンによる_soundObjectの調整
 		_music1 = ButtonControll( _music1 );
@@ -53,6 +73,12 @@ public class SoundManager : MonoBehaviour {
 		_music4 = ButtonControll( _music4 );
 		_music5 = ButtonControll( _music5 );
 		_music6 = ButtonControll( _music6 );
+		_music6 = ButtonControll( _music7 );
+		_music6 = ButtonControll( _music8 );
+		_music6 = ButtonControll( _music9 );
+		_music6 = ButtonControll( _music10 );
+		_music6 = ButtonControll( _music11 );
+		_music6 = ButtonControll( _music12 );
 
 
 	}
@@ -65,8 +91,12 @@ public class SoundManager : MonoBehaviour {
 		_music4 = ReflectAudioSource( _music4 );
 		_music5 = ReflectAudioSource( _music5 );
 		_music6 = ReflectAudioSource( _music6 );
-
-
+		_music6 = ReflectAudioSource( _music7 );
+		_music6 = ReflectAudioSource( _music8 );
+		_music6 = ReflectAudioSource( _music9 );
+		_music6 = ReflectAudioSource( _music10 );
+		_music6 = ReflectAudioSource( _music11 );
+		_music6 = ReflectAudioSource( _music12 );
 	}
 
 

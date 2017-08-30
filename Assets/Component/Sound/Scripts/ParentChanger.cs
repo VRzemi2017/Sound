@@ -18,12 +18,20 @@ public class ParentChanger : MonoBehaviour {
 	public ParentData _music4;
 	public ParentData _music5;
 	public ParentData _music6;
+	public ParentData _music7;
+	public ParentData _music8;
+	public ParentData _music9;
+	public ParentData _music10;
+	public ParentData _music11;
+	public ParentData _music12;
 
 
 	//親となるObject
-	public GameObject parent_a;
-	public GameObject parent_b;
-	public GameObject parent_c;
+	public GameObject Sound_root;
+	public GameObject Enemy;
+	public GameObject Gem;
+	public GameObject Wand;
+
 
 
 	// Use this for initialization
@@ -41,23 +49,34 @@ public class ParentChanger : MonoBehaviour {
 		_music4 = UpdateParentData ( _music4 );
 		_music5 = UpdateParentData ( _music5 );
 		_music6 = UpdateParentData ( _music6 );
+		_music6 = UpdateParentData ( _music7 );
+		_music6 = UpdateParentData ( _music8 );
+		_music6 = UpdateParentData ( _music9 );
+		_music6 = UpdateParentData ( _music10 );
+		_music6 = UpdateParentData ( _music11 );
+		_music6 = UpdateParentData ( _music12 );
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//親子関係・positionを変えるイベント
 		if (Input.GetKeyDown (KeyCode.A)) {
-			ChangeParent ( parent_a, _music1._gameObject );
-			MovePosition ( parent_a, _music1._gameObject );
+			ChangeParent ( Sound_root, _music1._gameObject );
+			MovePosition ( Sound_root, _music1._gameObject );
 		}
 		if (Input.GetKeyDown (KeyCode.B)) {
-			ChangeParent ( parent_b, _music1._gameObject );
-			MovePosition ( parent_b, _music1._gameObject );
+			ChangeParent ( Enemy, _music1._gameObject );
+			MovePosition ( Enemy, _music1._gameObject );
 		}
 		if (Input.GetKeyDown (KeyCode.C)) {
-			ChangeParent ( parent_c, _music1._gameObject );
-			MovePosition ( parent_c, _music1._gameObject );
+			ChangeParent ( Gem, _music1._gameObject );
+			MovePosition ( Gem, _music1._gameObject );
 		}
+		if (Input.GetKeyDown (KeyCode.D)) {
+			ChangeParent ( Wand, _music1._gameObject );
+			MovePosition ( Wand, _music1._gameObject );
+		}
+
 
 		//ParentChangerのInspectorを更新
 		_music1 = UpdateParentData ( _music1 );
@@ -66,6 +85,12 @@ public class ParentChanger : MonoBehaviour {
 		_music4 = UpdateParentData ( _music4 );
 		_music5 = UpdateParentData ( _music5 );
 		_music6 = UpdateParentData ( _music6 );
+		_music6 = UpdateParentData ( _music7 );
+		_music6 = UpdateParentData ( _music8 );
+		_music6 = UpdateParentData ( _music9 );
+		_music6 = UpdateParentData ( _music10 );
+		_music6 = UpdateParentData ( _music11 );
+		_music6 = UpdateParentData ( _music12 );
 	}
 
 
